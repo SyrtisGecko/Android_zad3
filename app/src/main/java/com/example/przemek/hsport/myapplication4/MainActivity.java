@@ -22,4 +22,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, ActivityBPart.class);
         startActivity(intent);
     }
+
+    public void launchPartM(View view) {
+        Intent intent = new Intent(this, ActivityMPart.class);
+        startActivity(intent);
+    }
 }
