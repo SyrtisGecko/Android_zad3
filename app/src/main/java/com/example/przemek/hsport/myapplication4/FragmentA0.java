@@ -42,7 +42,7 @@ public class FragmentA0 extends Fragment implements RadioGroup.OnCheckedChangeLi
         try {
             A0 = (Activity) c;
             System.out.println("A0: " + A0.toString());
-            sluchaczA0 = (FragmentA0.OnWyborOpcjiFragmentBListener) c;
+            sluchaczA0 = (OnWyborOpcjiFragmentBListener) c;
             System.out.println("sluchaczA0: " + sluchaczA0.toString());
         } catch (ClassCastException e) {
             throw new ClassCastException(A0.toString() + " musi implementowac OnWyborOpcjiFragmentBListener");
@@ -65,6 +65,13 @@ public class FragmentA0 extends Fragment implements RadioGroup.OnCheckedChangeLi
                 System.out.println("Wybrano radio 3");
                 sluchaczA0.onWyborOpcji(3);
                 break;
+            default:
+                System.out.println("--- Wrong radio ID ---");
         }
+    }
+
+    public void onActivityCreated(Bundle savedInstance) {
+        super.onActivityCreated(savedInstance);
+        ((RadioGroup) getActivity().findViewById(R.id.radioGroupB)).setOnCheckedChangeListener(this);
     }
 }
