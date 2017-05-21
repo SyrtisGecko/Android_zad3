@@ -3,6 +3,7 @@ package com.example.przemek.hsport.myapplication4;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.view.LayoutInflater;
@@ -33,6 +34,20 @@ public class FragmentA0 extends Fragment implements RadioGroup.OnCheckedChangeLi
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment_a0, container, false);
+    }
+
+    public void onAttach(Context c) {
+        super.onAttach(c);
+        System.out.println("------------------------------------------Jestesmy w onAttach---------------------");
+        try {
+            A0 = (Activity) c;
+            System.out.println("A0: " + A0.toString());
+            sluchaczA0 = (FragmentA0.OnWyborOpcjiFragmentBListener) c;
+            System.out.println("sluchaczA0: " + sluchaczA0.toString());
+        } catch (ClassCastException e) {
+            throw new ClassCastException(A0.toString() + " musi implementowac OnWyborOpcjiFragmentBListener");
+        }
+
     }
 
     @Override
