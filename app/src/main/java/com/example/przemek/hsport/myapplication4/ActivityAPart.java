@@ -1,10 +1,10 @@
 package com.example.przemek.hsport.myapplication4;
 
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 
-public class ActivityAPart extends AppCompatActivity implements OnWyborOpcjiListener {
+public class ActivityAPart extends Activity implements Fragment1.OnWyborOpcjiListener {
     Fragment11 f11;
     Fragment12 f12;
     FragmentTransaction transakcja;
@@ -16,7 +16,7 @@ public class ActivityAPart extends AppCompatActivity implements OnWyborOpcjiList
 
         f11 = new Fragment11();
         f12 = new Fragment12();
-        transakcja = getSupportFragmentManager().beginTransaction();
+        transakcja = getFragmentManager().beginTransaction();
         transakcja.add(R.id.frameForFragments, f11);
         transakcja.detach(f11);
         transakcja.add(R.id.frameForFragments, f12);
@@ -26,17 +26,22 @@ public class ActivityAPart extends AppCompatActivity implements OnWyborOpcjiList
 
     @Override
     public void onWyborOpcji(int opcja) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        System.out.println("------------------------------ onWyborOpcji w mainActv --------------------");
         switch (opcja) {
-            case R.id.ropt2:
+            case 2:
+                System.out.println("Zmieniam Fragment na f12 w mainActv");
                 transaction.detach(f11);
                 transaction.attach(f12);
+                transaction.commit();
                 break;
-            case R.id.ropt1:
+            case 1:
+                System.out.println("Zmieniam Fragment na f11 w mainActv");
                 transaction.detach(f12);
                 transaction.attach(f11);
+                transaction.commit();
                 break;
         }
-        transaction.commit();
+//        transaction.commit();
     }
 }
