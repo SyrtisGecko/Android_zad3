@@ -3,7 +3,6 @@ package com.example.przemek.hsport.myapplication4;
 
 import android.app.Activity;
 import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
@@ -25,19 +24,14 @@ public class Fragment1 extends Fragment implements RadioGroup.OnCheckedChangeLis
 
     Activity A1;
     OnWyborOpcjiListener sluchaczF1;
-//    FragmentTransaction transakcja;
 
-//    Bundle savedInstance;
-
-//    public Fragment1() {
+    public Fragment1() {
         // Required empty public constructor
-//    }
-
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        savedInstance = savedInstanceState;
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fragment1, container, false);
     }
@@ -55,23 +49,6 @@ public class Fragment1 extends Fragment implements RadioGroup.OnCheckedChangeLis
         }
 
     }
-
-
-
-//    @Override
-//    public void onWyborOpcji(int opcja) {
-//        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//        switch (opcja) {
-//            case R.id.ropt2:
-//                transaction.detach(f11);
-//                transaction.attach(f12);
-//                break;
-//            case R.id.ropt1:
-//                transaction.detach(f12);
-//                transaction.attach(f11);
-//                break;
-//        }
-//    }
 
     @Override
     public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
